@@ -99,7 +99,7 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Heslo :";
             // 
-            // Form1
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,9 +112,9 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnStorno);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormLogin";
+            this.Text = "Přihlášení";
             this.ResumeLayout(false);
             this.PerformLayout();
 
