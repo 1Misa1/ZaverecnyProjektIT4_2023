@@ -23,7 +23,7 @@ namespace ZaverecnyProjekt_IT4
 
         private void btnStorno_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace ZaverecnyProjekt_IT4
             {
                 btnLogin.PerformClick();
             }
+        }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
         }
     }
 }

@@ -10,9 +10,9 @@ namespace ZaverecnyProjekt_IT4
     public class User
     {
         public string Username { get; }
+        public string Password { get; }
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
-        public string Password { get; }
 
         public User(string username, string password)
         {
