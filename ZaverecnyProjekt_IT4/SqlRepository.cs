@@ -21,7 +21,22 @@ namespace ZaverecnyProjekt_IT4
 
         }
 
-        
+        public static List<Employee> EmployeeList()
+        {
+            SqlConnection conn = Connect();
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Employees";
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Employee> employee = new List<Employee>();
+            while (reader.Read())
+            {
+                employee.Add(new Employee(reader.GetInt32(0),reader.GetString(1),reader.GetString(2),reader.GetDateTime(3),reader.GetString(4),reader.GetString(5)));
+            }
+            reader.Close();
+            conn.Close();
+            return employee;
+        }
     }
 }
 
