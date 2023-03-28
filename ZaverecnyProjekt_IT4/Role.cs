@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ZaverecnyProjekt_IT4
 {
-    public enum Role
+    public class Role
     {
+        public int ID { get; } = 1;
+        public string Name { get; }
 
+        public Role(string name)
+        {
+            Name = name;
+        }
     }
 
 }
