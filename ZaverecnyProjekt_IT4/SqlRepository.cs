@@ -47,7 +47,20 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
-
+        public static void AddEmployee(int id, Employee employee)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO Employees (FirstName, LastName, BirthDate, Email, PhoneNumber) VALUES (@firstname, @lastname, @birthdate, @email, @phonenumber)";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Parameters.AddWithValue("firstname", employee.FirstName);
+            cmd.Parameters.AddWithValue("lastname", employee.LastName);
+            cmd.Parameters.AddWithValue("birthdate", employee.BirthDate);
+            cmd.Parameters.AddWithValue("email", employee.Email);
+            cmd.Parameters.AddWithValue("phonenumber", employee.PhoneNumber);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
 
