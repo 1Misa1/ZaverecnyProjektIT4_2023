@@ -28,6 +28,7 @@ namespace ZaverecnyProjekt_IT4
             lvEmployee.Items.Clear();
             foreach(Employee employee in SqlRepository.EmployeeList())
             {
+                if(employee.FirstName.ToLower().Contains(txtHledatEmployee.Text.ToLower()) || (employee.LastName.ToLower().Contains(txtHledatEmployee.Text.ToLower())))
                 lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
             }
         }
@@ -71,6 +72,11 @@ namespace ZaverecnyProjekt_IT4
             formEmployee.ShowDialog();
 
             employees = SqlRepository.EmployeeList();
+            updateemployee();
+        }
+
+        private void txtHledatEmployee_TextChanged(object sender, EventArgs e)
+        {
             updateemployee();
         }
     }

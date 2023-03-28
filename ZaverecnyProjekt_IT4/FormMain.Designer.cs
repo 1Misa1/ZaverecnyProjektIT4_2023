@@ -247,6 +247,7 @@
             this.txtHledatEmployee.Name = "txtHledatEmployee";
             this.txtHledatEmployee.Size = new System.Drawing.Size(145, 20);
             this.txtHledatEmployee.TabIndex = 5;
+            this.txtHledatEmployee.TextChanged += new System.EventHandler(this.txtHledatEmployee_TextChanged);
             // 
             // FormMain
             // 
