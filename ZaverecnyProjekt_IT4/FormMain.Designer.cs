@@ -31,12 +31,13 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.lblWho = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lvEmployee = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvContract = new System.Windows.Forms.ListView();
+            this.lblWho = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -46,8 +47,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.lblWho);
+            this.panel1.Controls.Add(this.btnLogOut);
+            this.panel1.Controls.Add(this.label);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -65,15 +67,15 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // lblWho
+            // label
             // 
-            this.lblWho.AutoSize = true;
-            this.lblWho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWho.Location = new System.Drawing.Point(12, 9);
-            this.lblWho.Name = "lblWho";
-            this.lblWho.Size = new System.Drawing.Size(73, 20);
-            this.lblWho.TabIndex = 1;
-            this.lblWho.Text = "Uživatel :";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label.Location = new System.Drawing.Point(12, 9);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(73, 20);
+            this.label.TabIndex = 1;
+            this.label.Text = "Uživatel :";
             // 
             // tabControl1
             // 
@@ -128,6 +130,16 @@
             this.lvContract.TabIndex = 0;
             this.lvContract.UseCompatibleStateImageBehavior = false;
             // 
+            // lblWho
+            // 
+            this.lblWho.AutoSize = true;
+            this.lblWho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblWho.Location = new System.Drawing.Point(91, 9);
+            this.lblWho.Name = "lblWho";
+            this.lblWho.Size = new System.Drawing.Size(51, 20);
+            this.lblWho.TabIndex = 3;
+            this.lblWho.Text = "label1";
+            // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(741, 424);
@@ -153,12 +165,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblWho;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ListView lvEmployee;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView lvContract;
+        private System.Windows.Forms.Label lblWho;
     }
 }

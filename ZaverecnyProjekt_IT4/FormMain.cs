@@ -62,7 +62,7 @@ namespace ZaverecnyProjekt_IT4
             var usersWithRoles = sqlRepo.GetUserWithRole();
 
             // Nastavení textu labelu
-            lblWho.Text = $"Role: {usersWithRoles[0].Item3} Jméno: {usersWithRoles[0].Item1} {usersWithRoles[0].Item2}";
+            label.Text = $"Role: {usersWithRoles[0].Item3} Jméno: {usersWithRoles[0].Item1} {usersWithRoles[0].Item2}";
         }
     
 
