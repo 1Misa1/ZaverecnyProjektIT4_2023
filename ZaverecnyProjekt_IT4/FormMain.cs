@@ -64,5 +64,14 @@ namespace ZaverecnyProjekt_IT4
             employees = SqlRepository.EmployeeList();
             updateemployee();
         }
+
+        private void btnEditEmployee_Click(object sender, EventArgs e)
+        {
+            Form formEmployee = new FormAddorEditEmployee(employees[lvEmployee.SelectedIndices[0]]);
+            formEmployee.ShowDialog();
+
+            employees = SqlRepository.EmployeeList();
+            updateemployee();
+        }
     }
 }

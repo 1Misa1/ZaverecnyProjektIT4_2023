@@ -38,7 +38,8 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.dtpBirtday = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,6 +108,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(163, 20);
             this.txtFirstName.TabIndex = 6;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
@@ -114,6 +116,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(163, 20);
             this.txtLastName.TabIndex = 7;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtEmail
             // 
@@ -121,6 +124,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 20);
             this.txtEmail.TabIndex = 8;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -128,20 +132,33 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(163, 20);
             this.txtPhoneNumber.TabIndex = 9;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
-            // dtpBirtday
+            // dtpBirthdate
             // 
-            this.dtpBirtday.Location = new System.Drawing.Point(145, 135);
-            this.dtpBirtday.Name = "dtpBirtday";
-            this.dtpBirtday.Size = new System.Drawing.Size(163, 20);
-            this.dtpBirtday.TabIndex = 10;
+            this.dtpBirthdate.Location = new System.Drawing.Point(145, 135);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(163, 20);
+            this.dtpBirthdate.TabIndex = 10;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAdd.Location = new System.Drawing.Point(145, 230);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(163, 28);
+            this.btnAdd.TabIndex = 11;
+            this.btnAdd.Text = "Přidat";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // FormAddorEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 250);
-            this.Controls.Add(this.dtpBirtday);
+            this.ClientSize = new System.Drawing.Size(330, 261);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.dtpBirthdate);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtLastName);
@@ -152,7 +169,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(346, 300);
+            this.MinimumSize = new System.Drawing.Size(346, 300);
             this.Name = "FormAddorEditEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddorEditEmployee";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,6 +191,7 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.DateTimePicker dtpBirtday;
+        private System.Windows.Forms.DateTimePicker dtpBirthdate;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
