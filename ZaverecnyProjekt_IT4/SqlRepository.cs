@@ -24,7 +24,6 @@ namespace ZaverecnyProjekt_IT4
         public static List<Employee> EmployeeList()
         {
             SqlConnection conn = Connect();
-            conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM Employees";
             SqlDataReader reader = cmd.ExecuteReader();
@@ -37,6 +36,18 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
             return employee;
         }
+
+        public static void DeleteEmployeebyId(int id)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM Employees WHERE Id=@id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
     }
 }
 

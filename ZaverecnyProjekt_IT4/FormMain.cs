@@ -14,29 +14,25 @@ namespace ZaverecnyProjekt_IT4
 {
     public partial class FormMain : Form
     {
+        List<Employee> employees = new List<Employee>(); 
 
-        public void Show(Form parentForm)
+        public FormMain()
         {
-
+            InitializeComponent();
+            employees = SqlRepository.EmployeeList();
+            updateemployee();
         }
 
+        private void updateemployee()
+        {
+            lvEmployee.Items.Clear();
+            foreach(Employee employee in SqlRepository.EmployeeList())
+            {
+                lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
+            }
+        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        // Kdo se přihlásil ? 
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
 
 
@@ -47,5 +43,18 @@ namespace ZaverecnyProjekt_IT4
             FormLogin formLogin = new FormLogin();
             formLogin.Close();
         }
+
+        private void lvEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteEmployee.Enabled = lvEmployee.SelectedIndices.Count == 1;
+            btnEditEmployee.Enabled = lvEmployee.SelectedIndices.Count == 1;
+        }
+
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            SqlRepository.DeleteEmployeebyId(int.Parse(lvEmployee.SelectedItems[0].Text));
+            updateemployee();
+        }
+
     }
 }

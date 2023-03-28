@@ -30,14 +30,25 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWho = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lvEmployee = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvContract = new System.Windows.Forms.ListView();
-            this.lblWho = new System.Windows.Forms.Label();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
+            this.btnEditEmployee = new System.Windows.Forms.Button();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtHledatEmployee = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -55,6 +66,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(741, 78);
             this.panel1.TabIndex = 0;
+            // 
+            // lblWho
+            // 
+            this.lblWho.AutoSize = true;
+            this.lblWho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblWho.Location = new System.Drawing.Point(91, 9);
+            this.lblWho.Name = "lblWho";
+            this.lblWho.Size = new System.Drawing.Size(51, 20);
+            this.lblWho.TabIndex = 3;
+            this.lblWho.Text = "label1";
             // 
             // btnLogOut
             // 
@@ -90,6 +111,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtHledatEmployee);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.btnDeleteEmployee);
+            this.tabPage1.Controls.Add(this.btnEditEmployee);
+            this.tabPage1.Controls.Add(this.btnAddEmployee);
             this.tabPage1.Controls.Add(this.lvEmployee);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -101,13 +127,54 @@
             // 
             // lvEmployee
             // 
-            this.lvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvEmployee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lvEmployee.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvEmployee.FullRowSelect = true;
+            this.lvEmployee.GridLines = true;
             this.lvEmployee.HideSelection = false;
             this.lvEmployee.Location = new System.Drawing.Point(3, 3);
             this.lvEmployee.Name = "lvEmployee";
-            this.lvEmployee.Size = new System.Drawing.Size(727, 314);
+            this.lvEmployee.Size = new System.Drawing.Size(727, 283);
             this.lvEmployee.TabIndex = 0;
             this.lvEmployee.UseCompatibleStateImageBehavior = false;
+            this.lvEmployee.View = System.Windows.Forms.View.Details;
+            this.lvEmployee.SelectedIndexChanged += new System.EventHandler(this.lvEmployee_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 56;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Jméno";
+            this.columnHeader2.Width = 91;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Příjmení";
+            this.columnHeader3.Width = 84;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Datum narození";
+            this.columnHeader4.Width = 122;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Email";
+            this.columnHeader5.Width = 134;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Telefonní číslo";
+            this.columnHeader6.Width = 140;
             // 
             // tabPage2
             // 
@@ -122,23 +189,62 @@
             // 
             // lvContract
             // 
-            this.lvContract.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvContract.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvContract.FullRowSelect = true;
+            this.lvContract.GridLines = true;
             this.lvContract.HideSelection = false;
             this.lvContract.Location = new System.Drawing.Point(3, 3);
             this.lvContract.Name = "lvContract";
             this.lvContract.Size = new System.Drawing.Size(727, 314);
             this.lvContract.TabIndex = 0;
             this.lvContract.UseCompatibleStateImageBehavior = false;
+            this.lvContract.View = System.Windows.Forms.View.Details;
             // 
-            // lblWho
+            // btnAddEmployee
             // 
-            this.lblWho.AutoSize = true;
-            this.lblWho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblWho.Location = new System.Drawing.Point(91, 9);
-            this.lblWho.Name = "lblWho";
-            this.lblWho.Size = new System.Drawing.Size(51, 20);
-            this.lblWho.TabIndex = 3;
-            this.lblWho.Text = "label1";
+            this.btnAddEmployee.Location = new System.Drawing.Point(6, 289);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(94, 23);
+            this.btnAddEmployee.TabIndex = 1;
+            this.btnAddEmployee.Text = "Add Employee";
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnEditEmployee
+            // 
+            this.btnEditEmployee.Enabled = false;
+            this.btnEditEmployee.Location = new System.Drawing.Point(106, 289);
+            this.btnEditEmployee.Name = "btnEditEmployee";
+            this.btnEditEmployee.Size = new System.Drawing.Size(92, 23);
+            this.btnEditEmployee.TabIndex = 2;
+            this.btnEditEmployee.Text = "Edit Employee";
+            this.btnEditEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteEmployee
+            // 
+            this.btnDeleteEmployee.Enabled = false;
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(204, 289);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(101, 23);
+            this.btnDeleteEmployee.TabIndex = 3;
+            this.btnDeleteEmployee.Text = "Delete Employee";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(311, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Vyhledávání :";
+            // 
+            // txtHledatEmployee
+            // 
+            this.txtHledatEmployee.Location = new System.Drawing.Point(390, 291);
+            this.txtHledatEmployee.Name = "txtHledatEmployee";
+            this.txtHledatEmployee.Size = new System.Drawing.Size(145, 20);
+            this.txtHledatEmployee.TabIndex = 5;
             // 
             // FormMain
             // 
@@ -149,13 +255,13 @@
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Text = "Systém zakázek";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -173,5 +279,16 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView lvContract;
         private System.Windows.Forms.Label lblWho;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.TextBox txtHledatEmployee;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDeleteEmployee;
+        private System.Windows.Forms.Button btnEditEmployee;
+        private System.Windows.Forms.Button btnAddEmployee;
     }
 }
