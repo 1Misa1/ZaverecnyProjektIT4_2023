@@ -21,6 +21,7 @@ namespace ZaverecnyProjekt_IT4
 
         }
 
+        // čtení zaměstnanců z tabulky
         public static List<Employee> EmployeeList()
         {
             SqlConnection conn = Connect();
@@ -37,6 +38,7 @@ namespace ZaverecnyProjekt_IT4
             return employee;
         }
 
+        // mazání zaměstnanců
         public static void DeleteEmployeebyId(int id)
         {
             SqlConnection conn = Connect();
@@ -47,6 +49,7 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
+        // přidávání zaměstnanců
         public static void AddEmployee(Employee employee)
         {
             SqlConnection conn = Connect();
@@ -61,6 +64,7 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
+        // editace zaměstnanců
         public static void EditEmployee(int id, Employee employee)
         {
             SqlConnection conn = Connect();
@@ -76,6 +80,7 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
+        // čtení contractu z tabulky
         public static List<Contract> ContractList()
         {
             SqlConnection conn = Connect();
@@ -85,7 +90,7 @@ namespace ZaverecnyProjekt_IT4
             List<Contract> contracts = new List<Contract>();
             while (reader.Read())
             {
-                contracts.Add(new Contract(reader.GetString(0), reader.GetString(1)));
+                contracts.Add(new Contract(reader.GetString(1), reader.GetString(2)));
             }
             reader.Close();
             conn.Close();

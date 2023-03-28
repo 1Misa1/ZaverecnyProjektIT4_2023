@@ -15,12 +15,15 @@ namespace ZaverecnyProjekt_IT4
     public partial class FormMain : Form
     {
         List<Employee> employees = new List<Employee>(); 
+        List<Contract> contracts = new List<Contract>();
 
         public FormMain()
         {
             InitializeComponent();
             employees = SqlRepository.EmployeeList();
+            contracts = SqlRepository.ContractList();
             updateemployee();
+            updatecontracts();
         }
 
         private void updateemployee()
@@ -32,6 +35,17 @@ namespace ZaverecnyProjekt_IT4
                 lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
             }
         }
+
+        private void updatecontracts()
+        {
+            lvContract.Items.Clear();
+            foreach (Contract contract in SqlRepository.ContractList())
+            {
+                lvContract.Items.Add(new ListViewItem(new string[] { contract.Customer, contract.Description }));
+            }
+        }
+
+
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
