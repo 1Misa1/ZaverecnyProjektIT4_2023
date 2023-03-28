@@ -30,7 +30,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.adminPanel = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblWho = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -47,7 +46,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Controls.Add(this.adminPanel);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.lblWho);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -55,14 +53,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(741, 78);
             this.panel1.TabIndex = 0;
-            // 
-            // adminPanel
-            // 
-            this.adminPanel.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.adminPanel.Location = new System.Drawing.Point(343, 9);
-            this.adminPanel.Name = "adminPanel";
-            this.adminPanel.Size = new System.Drawing.Size(274, 63);
-            this.adminPanel.TabIndex = 3;
             // 
             // btnLogOut
             // 
@@ -165,7 +155,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblWho;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Panel adminPanel;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ListView lvEmployee;

@@ -8,9 +8,7 @@ namespace ZaverecnyProjekt_IT4
 {
     public enum Role
     {
-        User,
-        Admin,
-        Manager
+
     }
 
 }
