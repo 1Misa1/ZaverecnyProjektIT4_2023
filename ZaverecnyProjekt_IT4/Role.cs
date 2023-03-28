@@ -10,10 +10,12 @@ namespace ZaverecnyProjekt_IT4
     {
         public int ID { get; } = 1;
         public string Name { get; }
+        public bool IsAdmin { get; }
 
-        public Role(string name)
+        public Role(string name, bool isAdmin)
         {
             Name = name;
+            IsAdmin = isAdmin;
         }
     }
 

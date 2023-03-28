@@ -10,7 +10,16 @@ namespace ZaverecnyProjekt_IT4
 {
     public class SqlRepository
     {
-       
+        private static string connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MainData;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
+        public static SqlConnection Connection()
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            return conn;
+
+
+        }
     }
 }
 
