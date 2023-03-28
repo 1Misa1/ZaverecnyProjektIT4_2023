@@ -35,6 +35,11 @@
             this.label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtHledatEmployee = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.btnEditEmployee = new System.Windows.Forms.Button();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
             this.lvEmployee = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,11 +49,9 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lvContract = new System.Windows.Forms.ListView();
-            this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.btnEditEmployee = new System.Windows.Forms.Button();
-            this.btnDeleteEmployee = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtHledatEmployee = new System.Windows.Forms.TextBox();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -125,6 +128,55 @@
             this.tabPage1.Text = "Employee";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtHledatEmployee
+            // 
+            this.txtHledatEmployee.Location = new System.Drawing.Point(390, 291);
+            this.txtHledatEmployee.Name = "txtHledatEmployee";
+            this.txtHledatEmployee.Size = new System.Drawing.Size(145, 20);
+            this.txtHledatEmployee.TabIndex = 5;
+            this.txtHledatEmployee.TextChanged += new System.EventHandler(this.txtHledatEmployee_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(311, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Vyhledávání :";
+            // 
+            // btnDeleteEmployee
+            // 
+            this.btnDeleteEmployee.Enabled = false;
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(204, 289);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(101, 23);
+            this.btnDeleteEmployee.TabIndex = 3;
+            this.btnDeleteEmployee.Text = "Delete Employee";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            // 
+            // btnEditEmployee
+            // 
+            this.btnEditEmployee.Enabled = false;
+            this.btnEditEmployee.Location = new System.Drawing.Point(106, 289);
+            this.btnEditEmployee.Name = "btnEditEmployee";
+            this.btnEditEmployee.Size = new System.Drawing.Size(92, 23);
+            this.btnEditEmployee.TabIndex = 2;
+            this.btnEditEmployee.Text = "Edit Employee";
+            this.btnEditEmployee.UseVisualStyleBackColor = true;
+            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
+            // 
+            // btnAddEmployee
+            // 
+            this.btnAddEmployee.Location = new System.Drawing.Point(6, 289);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(94, 23);
+            this.btnAddEmployee.TabIndex = 1;
+            this.btnAddEmployee.Text = "Add Employee";
+            this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            // 
             // lvEmployee
             // 
             this.lvEmployee.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -189,6 +241,10 @@
             // 
             // lvContract
             // 
+            this.lvContract.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lvContract.Dock = System.Windows.Forms.DockStyle.Top;
             this.lvContract.FullRowSelect = true;
             this.lvContract.GridLines = true;
@@ -200,54 +256,20 @@
             this.lvContract.UseCompatibleStateImageBehavior = false;
             this.lvContract.View = System.Windows.Forms.View.Details;
             // 
-            // btnAddEmployee
+            // columnHeader7
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(6, 289);
-            this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(94, 23);
-            this.btnAddEmployee.TabIndex = 1;
-            this.btnAddEmployee.Text = "Add Employee";
-            this.btnAddEmployee.UseVisualStyleBackColor = true;
-            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
+            this.columnHeader7.Text = "ID";
+            this.columnHeader7.Width = 53;
             // 
-            // btnEditEmployee
+            // columnHeader8
             // 
-            this.btnEditEmployee.Enabled = false;
-            this.btnEditEmployee.Location = new System.Drawing.Point(106, 289);
-            this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(92, 23);
-            this.btnEditEmployee.TabIndex = 2;
-            this.btnEditEmployee.Text = "Edit Employee";
-            this.btnEditEmployee.UseVisualStyleBackColor = true;
-            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
+            this.columnHeader8.Text = "Zákazník";
+            this.columnHeader8.Width = 110;
             // 
-            // btnDeleteEmployee
+            // columnHeader9
             // 
-            this.btnDeleteEmployee.Enabled = false;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(204, 289);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(101, 23);
-            this.btnDeleteEmployee.TabIndex = 3;
-            this.btnDeleteEmployee.Text = "Delete Employee";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
-            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 294);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Vyhledávání :";
-            // 
-            // txtHledatEmployee
-            // 
-            this.txtHledatEmployee.Location = new System.Drawing.Point(390, 291);
-            this.txtHledatEmployee.Name = "txtHledatEmployee";
-            this.txtHledatEmployee.Size = new System.Drawing.Size(145, 20);
-            this.txtHledatEmployee.TabIndex = 5;
-            this.txtHledatEmployee.TextChanged += new System.EventHandler(this.txtHledatEmployee_TextChanged);
+            this.columnHeader9.Text = "Popis";
+            this.columnHeader9.Width = 93;
             // 
             // FormMain
             // 
@@ -293,5 +315,8 @@
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.Button btnAddEmployee;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

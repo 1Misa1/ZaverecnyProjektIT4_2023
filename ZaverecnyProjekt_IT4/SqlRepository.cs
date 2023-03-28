@@ -75,6 +75,22 @@ namespace ZaverecnyProjekt_IT4
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static List<Contract> ContractList()
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Contract";
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Contract> contracts = new List<Contract>();
+            while (reader.Read())
+            {
+                contracts.Add(new Contract(reader.GetString(0), reader.GetString(1)));
+            }
+            reader.Close();
+            conn.Close();
+            return contracts;
+        }
     }
 }
 
