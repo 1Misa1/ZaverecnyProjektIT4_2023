@@ -45,6 +45,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Přidat";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtDescription
             // 
@@ -53,6 +54,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(163, 65);
             this.txtDescription.TabIndex = 16;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // txtCustomer
             // 
@@ -60,6 +62,7 @@
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(163, 20);
             this.txtCustomer.TabIndex = 15;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // label3
             // 
