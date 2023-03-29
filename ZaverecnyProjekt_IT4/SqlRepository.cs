@@ -31,7 +31,7 @@ namespace ZaverecnyProjekt_IT4
             List<Employee> employee = new List<Employee>();
             while (reader.Read())
             {
-                employee.Add(new Employee(reader.GetInt32(0),reader.GetString(1),reader.GetString(2),reader.GetDateTime(3),reader.GetString(4),reader.GetString(5)));
+                employee.Add(new Employee(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDateTime(3), reader.GetString(4), reader.GetString(5)));
             }
             reader.Close();
             conn.Close();
@@ -96,6 +96,46 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
             return contracts;
         }
+
+        // přidávání do contactu 
+
+        public static void AddContract(Contract contract)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO Contract (Customer, Description) VALUES (@customer, @description)";
+            cmd.Parameters.AddWithValue("customer", contract.Customer);
+            cmd.Parameters.AddWithValue("description", contract.Description);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        // editování contractu
+        public static void EditContract(int id, Contract contract)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE Contract SET Customer=@customer, Description=@description WHERE id=@id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Parameters.AddWithValue("customer", contract.Customer);
+            cmd.Parameters.AddWithValue("description", contract.Description);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        //mazání contractu
+        public static void DeleteContract(int id)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM Contract WHERE Id=@id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+
     }
 }
 
