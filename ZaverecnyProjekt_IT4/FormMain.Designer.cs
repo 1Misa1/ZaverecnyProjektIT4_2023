@@ -35,7 +35,7 @@
             this.label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtHledatEmployee = new System.Windows.Forms.TextBox();
+            this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.btnEditEmployee = new System.Windows.Forms.Button();
@@ -52,6 +52,11 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtSearchContract = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnDeleteContract = new System.Windows.Forms.Button();
+            this.btnEditContract = new System.Windows.Forms.Button();
+            this.btnAddContract = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -114,7 +119,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtHledatEmployee);
+            this.tabPage1.Controls.Add(this.txtSearchEmployee);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnDeleteEmployee);
             this.tabPage1.Controls.Add(this.btnEditEmployee);
@@ -128,13 +133,13 @@
             this.tabPage1.Text = "Zaměstnanci";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtHledatEmployee
+            // txtSearchEmployee
             // 
-            this.txtHledatEmployee.Location = new System.Drawing.Point(390, 291);
-            this.txtHledatEmployee.Name = "txtHledatEmployee";
-            this.txtHledatEmployee.Size = new System.Drawing.Size(145, 20);
-            this.txtHledatEmployee.TabIndex = 5;
-            this.txtHledatEmployee.TextChanged += new System.EventHandler(this.txtHledatEmployee_TextChanged);
+            this.txtSearchEmployee.Location = new System.Drawing.Point(390, 291);
+            this.txtSearchEmployee.Name = "txtSearchEmployee";
+            this.txtSearchEmployee.Size = new System.Drawing.Size(145, 20);
+            this.txtSearchEmployee.TabIndex = 5;
+            this.txtSearchEmployee.TextChanged += new System.EventHandler(this.txtHledatEmployee_TextChanged);
             // 
             // label1
             // 
@@ -230,6 +235,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtSearchContract);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.btnDeleteContract);
+            this.tabPage2.Controls.Add(this.btnEditContract);
+            this.tabPage2.Controls.Add(this.btnAddContract);
             this.tabPage2.Controls.Add(this.lvContract);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -251,7 +261,7 @@
             this.lvContract.HideSelection = false;
             this.lvContract.Location = new System.Drawing.Point(3, 3);
             this.lvContract.Name = "lvContract";
-            this.lvContract.Size = new System.Drawing.Size(727, 314);
+            this.lvContract.Size = new System.Drawing.Size(727, 283);
             this.lvContract.TabIndex = 0;
             this.lvContract.UseCompatibleStateImageBehavior = false;
             this.lvContract.View = System.Windows.Forms.View.Details;
@@ -271,6 +281,51 @@
             this.columnHeader9.Text = "Popis";
             this.columnHeader9.Width = 93;
             // 
+            // txtSearchContract
+            // 
+            this.txtSearchContract.Location = new System.Drawing.Point(389, 291);
+            this.txtSearchContract.Name = "txtSearchContract";
+            this.txtSearchContract.Size = new System.Drawing.Size(145, 20);
+            this.txtSearchContract.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(310, 294);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Vyhledávání :";
+            // 
+            // btnDeleteContract
+            // 
+            this.btnDeleteContract.Enabled = false;
+            this.btnDeleteContract.Location = new System.Drawing.Point(203, 289);
+            this.btnDeleteContract.Name = "btnDeleteContract";
+            this.btnDeleteContract.Size = new System.Drawing.Size(101, 23);
+            this.btnDeleteContract.TabIndex = 8;
+            this.btnDeleteContract.Text = "Delete Employee";
+            this.btnDeleteContract.UseVisualStyleBackColor = true;
+            // 
+            // btnEditContract
+            // 
+            this.btnEditContract.Enabled = false;
+            this.btnEditContract.Location = new System.Drawing.Point(105, 289);
+            this.btnEditContract.Name = "btnEditContract";
+            this.btnEditContract.Size = new System.Drawing.Size(92, 23);
+            this.btnEditContract.TabIndex = 7;
+            this.btnEditContract.Text = "Edit Employee";
+            this.btnEditContract.UseVisualStyleBackColor = true;
+            // 
+            // btnAddContract
+            // 
+            this.btnAddContract.Location = new System.Drawing.Point(5, 289);
+            this.btnAddContract.Name = "btnAddContract";
+            this.btnAddContract.Size = new System.Drawing.Size(94, 23);
+            this.btnAddContract.TabIndex = 6;
+            this.btnAddContract.Text = "Add Employee";
+            this.btnAddContract.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(741, 424);
@@ -288,6 +343,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -310,7 +366,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.TextBox txtHledatEmployee;
+        private System.Windows.Forms.TextBox txtSearchEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnEditEmployee;
@@ -318,5 +374,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.TextBox txtSearchContract;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnDeleteContract;
+        private System.Windows.Forms.Button btnEditContract;
+        private System.Windows.Forms.Button btnAddContract;
     }
 }

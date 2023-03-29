@@ -31,7 +31,7 @@ namespace ZaverecnyProjekt_IT4
             lvEmployee.Items.Clear();
             foreach(Employee employee in SqlRepository.EmployeeList())
             {
-                if(employee.FirstName.ToLower().Contains(txtHledatEmployee.Text.ToLower()) || (employee.LastName.ToLower().Contains(txtHledatEmployee.Text.ToLower())))
+                if(employee.FirstName.ToLower().Contains(txtSearchEmployee.Text.ToLower()) || (employee.LastName.ToLower().Contains(txtSearchEmployee.Text.ToLower())))
                 lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
             }
         }
