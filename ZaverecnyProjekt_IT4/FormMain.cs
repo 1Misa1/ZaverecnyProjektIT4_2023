@@ -93,5 +93,14 @@ namespace ZaverecnyProjekt_IT4
         {
             updateemployee();
         }
+
+        private void btnAddContract_Click(object sender, EventArgs e)
+        {
+            Form formContract = new FormAddorEditContract();
+            formContract.ShowDialog();
+
+            contracts = SqlRepository.ContractList();
+            updatecontracts();
+        }
     }
 }

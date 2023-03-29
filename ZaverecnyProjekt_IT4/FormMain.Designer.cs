@@ -135,7 +135,7 @@
             // 
             // txtSearchEmployee
             // 
-            this.txtSearchEmployee.Location = new System.Drawing.Point(390, 291);
+            this.txtSearchEmployee.Location = new System.Drawing.Point(458, 291);
             this.txtSearchEmployee.Name = "txtSearchEmployee";
             this.txtSearchEmployee.Size = new System.Drawing.Size(145, 20);
             this.txtSearchEmployee.TabIndex = 5;
@@ -144,7 +144,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 294);
+            this.label1.Location = new System.Drawing.Point(379, 294);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 4;
@@ -153,22 +153,22 @@
             // btnDeleteEmployee
             // 
             this.btnDeleteEmployee.Enabled = false;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(204, 289);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(247, 289);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(101, 23);
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(116, 23);
             this.btnDeleteEmployee.TabIndex = 3;
-            this.btnDeleteEmployee.Text = "Delete Employee";
+            this.btnDeleteEmployee.Text = "Smazat zaměstnance";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
             this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // btnEditEmployee
             // 
             this.btnEditEmployee.Enabled = false;
-            this.btnEditEmployee.Location = new System.Drawing.Point(106, 289);
+            this.btnEditEmployee.Location = new System.Drawing.Point(124, 289);
             this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(92, 23);
+            this.btnEditEmployee.Size = new System.Drawing.Size(117, 23);
             this.btnEditEmployee.TabIndex = 2;
-            this.btnEditEmployee.Text = "Edit Employee";
+            this.btnEditEmployee.Text = "Upravit zaměstnance";
             this.btnEditEmployee.UseVisualStyleBackColor = true;
             this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 
@@ -176,9 +176,9 @@
             // 
             this.btnAddEmployee.Location = new System.Drawing.Point(6, 289);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(94, 23);
+            this.btnAddEmployee.Size = new System.Drawing.Size(112, 23);
             this.btnAddEmployee.TabIndex = 1;
-            this.btnAddEmployee.Text = "Add Employee";
+            this.btnAddEmployee.Text = "Přidat zaměstnance";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
@@ -304,7 +304,7 @@
             this.btnDeleteContract.Name = "btnDeleteContract";
             this.btnDeleteContract.Size = new System.Drawing.Size(101, 23);
             this.btnDeleteContract.TabIndex = 8;
-            this.btnDeleteContract.Text = "Delete Employee";
+            this.btnDeleteContract.Text = "Smazat zakázku";
             this.btnDeleteContract.UseVisualStyleBackColor = true;
             // 
             // btnEditContract
@@ -314,7 +314,7 @@
             this.btnEditContract.Name = "btnEditContract";
             this.btnEditContract.Size = new System.Drawing.Size(92, 23);
             this.btnEditContract.TabIndex = 7;
-            this.btnEditContract.Text = "Edit Employee";
+            this.btnEditContract.Text = "Upravit zakázku";
             this.btnEditContract.UseVisualStyleBackColor = true;
             // 
             // btnAddContract
@@ -323,8 +323,9 @@
             this.btnAddContract.Name = "btnAddContract";
             this.btnAddContract.Size = new System.Drawing.Size(94, 23);
             this.btnAddContract.TabIndex = 6;
-            this.btnAddContract.Text = "Add Employee";
+            this.btnAddContract.Text = "Přidat zakázku";
             this.btnAddContract.UseVisualStyleBackColor = true;
+            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
             // 
             // FormMain
             // 
