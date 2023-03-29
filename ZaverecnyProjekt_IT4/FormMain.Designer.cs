@@ -48,15 +48,15 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lvContract = new System.Windows.Forms.ListView();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtSearchContract = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDeleteContract = new System.Windows.Forms.Button();
             this.btnEditContract = new System.Windows.Forms.Button();
             this.btnAddContract = new System.Windows.Forms.Button();
+            this.lvContract = new System.Windows.Forms.ListView();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -249,44 +249,13 @@
             this.tabPage2.Text = "Zakázky";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lvContract
-            // 
-            this.lvContract.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.lvContract.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lvContract.FullRowSelect = true;
-            this.lvContract.GridLines = true;
-            this.lvContract.HideSelection = false;
-            this.lvContract.Location = new System.Drawing.Point(3, 3);
-            this.lvContract.Name = "lvContract";
-            this.lvContract.Size = new System.Drawing.Size(727, 283);
-            this.lvContract.TabIndex = 0;
-            this.lvContract.UseCompatibleStateImageBehavior = false;
-            this.lvContract.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "ID";
-            this.columnHeader7.Width = 53;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Zákazník";
-            this.columnHeader8.Width = 110;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Popis";
-            this.columnHeader9.Width = 93;
-            // 
             // txtSearchContract
             // 
             this.txtSearchContract.Location = new System.Drawing.Point(389, 291);
             this.txtSearchContract.Name = "txtSearchContract";
             this.txtSearchContract.Size = new System.Drawing.Size(145, 20);
             this.txtSearchContract.TabIndex = 10;
+            this.txtSearchContract.TextChanged += new System.EventHandler(this.txtSearchContract_TextChanged);
             // 
             // label2
             // 
@@ -306,6 +275,7 @@
             this.btnDeleteContract.TabIndex = 8;
             this.btnDeleteContract.Text = "Smazat zakázku";
             this.btnDeleteContract.UseVisualStyleBackColor = true;
+            this.btnDeleteContract.Click += new System.EventHandler(this.btnDeleteContract_Click);
             // 
             // btnEditContract
             // 
@@ -316,6 +286,7 @@
             this.btnEditContract.TabIndex = 7;
             this.btnEditContract.Text = "Upravit zakázku";
             this.btnEditContract.UseVisualStyleBackColor = true;
+            this.btnEditContract.Click += new System.EventHandler(this.btnEditContract_Click);
             // 
             // btnAddContract
             // 
@@ -326,6 +297,38 @@
             this.btnAddContract.Text = "Přidat zakázku";
             this.btnAddContract.UseVisualStyleBackColor = true;
             this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
+            // 
+            // lvContract
+            // 
+            this.lvContract.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
+            this.lvContract.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvContract.FullRowSelect = true;
+            this.lvContract.GridLines = true;
+            this.lvContract.HideSelection = false;
+            this.lvContract.Location = new System.Drawing.Point(3, 3);
+            this.lvContract.Name = "lvContract";
+            this.lvContract.Size = new System.Drawing.Size(727, 283);
+            this.lvContract.TabIndex = 0;
+            this.lvContract.UseCompatibleStateImageBehavior = false;
+            this.lvContract.View = System.Windows.Forms.View.Details;
+            this.lvContract.SelectedIndexChanged += new System.EventHandler(this.lvContract_SelectedIndexChanged);
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Zákazník";
+            this.columnHeader8.Width = 110;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Popis";
+            this.columnHeader9.Width = 93;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Id";
             // 
             // FormMain
             // 
@@ -372,7 +375,6 @@
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.Button btnAddEmployee;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.TextBox txtSearchContract;
@@ -380,5 +382,6 @@
         private System.Windows.Forms.Button btnDeleteContract;
         private System.Windows.Forms.Button btnEditContract;
         private System.Windows.Forms.Button btnAddContract;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

@@ -17,5 +17,12 @@ namespace ZaverecnyProjekt_IT4
             Customer = customer;
             Description = description;
         }
+
+        public Contract(int iD, string customer, string description)
+        {
+            ID = iD;
+            Customer = customer;
+            Description = description;
+        }
     }
 }

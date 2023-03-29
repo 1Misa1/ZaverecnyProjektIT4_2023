@@ -41,7 +41,8 @@ namespace ZaverecnyProjekt_IT4
             lvContract.Items.Clear();
             foreach (Contract contract in SqlRepository.ContractList())
             {
-                lvContract.Items.Add(new ListViewItem(new string[] { contract.Customer, contract.Description }));
+                if (contract.Customer.ToLower().Contains(txtSearchContract.Text.ToLower()))
+                lvContract.Items.Add(new ListViewItem(new string[] { contract.ID.ToString(),contract.Customer, contract.Description }));
             }
         }
 
@@ -65,11 +66,6 @@ namespace ZaverecnyProjekt_IT4
             btnEditEmployee.Enabled = lvEmployee.SelectedIndices.Count == 1;
         }
 
-        private void btnDeleteEmployee_Click(object sender, EventArgs e)
-        {
-            SqlRepository.DeleteEmployeebyId(int.Parse(lvEmployee.SelectedItems[0].Text));
-            updateemployee();
-        }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
@@ -89,6 +85,12 @@ namespace ZaverecnyProjekt_IT4
             updateemployee();
         }
 
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            SqlRepository.DeleteEmployeebyId(int.Parse(lvEmployee.SelectedItems[0].Text));
+            updateemployee();
+        }
+
         private void txtHledatEmployee_TextChanged(object sender, EventArgs e)
         {
             updateemployee();
@@ -100,6 +102,32 @@ namespace ZaverecnyProjekt_IT4
             formContract.ShowDialog();
 
             contracts = SqlRepository.ContractList();
+            updatecontracts();
+        }
+
+        private void btnEditContract_Click(object sender, EventArgs e)
+        {
+            Form formContract = new FormAddorEditContract(contracts[lvContract.SelectedIndices[0]]);
+            formContract.ShowDialog();
+
+            contracts = SqlRepository.ContractList();
+            updatecontracts();
+        }
+
+        private void lvContract_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteContract.Enabled = lvContract.SelectedIndices.Count == 1;
+            btnEditContract.Enabled = lvContract.SelectedIndices.Count == 1;
+        }
+
+        private void btnDeleteContract_Click(object sender, EventArgs e)
+        {
+            SqlRepository.DeleteContractbyId(int.Parse(lvContract.SelectedItems[0].Text));
+            updatecontracts();
+        }
+
+        private void txtSearchContract_TextChanged(object sender, EventArgs e)
+        {
             updatecontracts();
         }
     }

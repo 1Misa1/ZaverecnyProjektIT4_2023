@@ -90,7 +90,7 @@ namespace ZaverecnyProjekt_IT4
             List<Contract> contracts = new List<Contract>();
             while (reader.Read())
             {
-                contracts.Add(new Contract(reader.GetString(1), reader.GetString(2)));
+                contracts.Add(new Contract(reader.GetInt32(0),reader.GetString(1), reader.GetString(2)));
             }
             reader.Close();
             conn.Close();
@@ -124,7 +124,7 @@ namespace ZaverecnyProjekt_IT4
         }
 
         //mazání contractu
-        public static void DeleteContract(int id)
+        public static void DeleteContractbyId(int id)
         {
             SqlConnection conn = Connect();
             SqlCommand cmd = conn.CreateCommand();

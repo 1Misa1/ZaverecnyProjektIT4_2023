@@ -24,7 +24,7 @@ namespace ZaverecnyProjekt_IT4
             id = contract.ID;
             InitializeComponent();
             txtCustomer.Text = contract.Customer;
-            txtDescription.Text = contract.Customer;
+            txtDescription.Text = contract.Description;
 
             btnAdd.Text = "Upravit";
         }
