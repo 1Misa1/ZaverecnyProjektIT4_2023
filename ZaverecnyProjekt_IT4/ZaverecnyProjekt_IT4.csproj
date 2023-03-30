@@ -52,10 +52,10 @@
     <Compile Include="Classes\Contract.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\WorkHours.cs" />
-    <Compile Include="FormAddorEditWorkType.cs">
+    <Compile Include="Forms\FormAddorEditWorkType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddorEditWorkType.Designer.cs">
+    <Compile Include="Forms\FormAddorEditWorkType.Designer.cs">
       <DependentUpon>FormAddorEditWorkType.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAddorEditContract.cs">
@@ -88,7 +88,7 @@
     <Compile Include="SqlRepository.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\WorkType.cs" />
-    <EmbeddedResource Include="FormAddorEditWorkType.resx">
+    <EmbeddedResource Include="Forms\FormAddorEditWorkType.resx">
       <DependentUpon>FormAddorEditWorkType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddorEditContract.resx">

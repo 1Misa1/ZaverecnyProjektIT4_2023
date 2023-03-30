@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZaverecnyProjekt_IT4.Classes;
 
 namespace ZaverecnyProjekt_IT4
 {
@@ -197,7 +198,7 @@ namespace ZaverecnyProjekt_IT4
             List<WorkHours> workhours = new List<WorkHours>();
             while (reader.Read())
             {
-
+                //workhours.Add(new WorkHours(reader.GetInt32(0),reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4),reader.GetDateTime(5), reader.GetInt32(6));
             }
             reader.Close();
             conn.Close();
