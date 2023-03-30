@@ -178,11 +178,11 @@ namespace ZaverecnyProjekt_IT4
         }
 
         // mazání z tabulky worktype
-        public static void DeleteWorktype(int id)
+        public static void DeleteWorktypebyId(int id)
         {
             SqlConnection conn = Connect();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "DELETE FROM Worktypes WHERE Id=id";
+            cmd.CommandText = "DELETE FROM Worktypes WHERE Id=@id";
             cmd.Parameters.AddWithValue("id", id);
             cmd.ExecuteNonQuery();
             conn.Close();

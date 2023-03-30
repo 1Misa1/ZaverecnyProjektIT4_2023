@@ -14,7 +14,7 @@ namespace ZaverecnyProjekt_IT4
 {
     public partial class FormMain : Form
     {
-        List<Employee> employees = new List<Employee>(); 
+        List<Employee> employees = new List<Employee>();
         List<Contract> contracts = new List<Contract>();
         List<WorkType> worktypes = new List<WorkType>();
 
@@ -32,10 +32,10 @@ namespace ZaverecnyProjekt_IT4
         private void updateemployee()
         {
             lvEmployee.Items.Clear();
-            foreach(Employee employee in SqlRepository.EmployeeList())
+            foreach (Employee employee in SqlRepository.EmployeeList())
             {
-                if(employee.FirstName.ToLower().Contains(txtSearchEmployee.Text.ToLower()) || (employee.LastName.ToLower().Contains(txtSearchEmployee.Text.ToLower())))
-                lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
+                if (employee.FirstName.ToLower().Contains(txtSearchEmployee.Text.ToLower()) || (employee.LastName.ToLower().Contains(txtSearchEmployee.Text.ToLower())))
+                    lvEmployee.Items.Add(new ListViewItem(new string[] { employee.ID.ToString(), employee.FirstName, employee.LastName, employee.BirthDate.ToString(), employee.Email, employee.PhoneNumber }));
             }
         }
 
@@ -45,7 +45,7 @@ namespace ZaverecnyProjekt_IT4
             foreach (Contract contract in SqlRepository.ContractList())
             {
                 if (contract.Customer.ToLower().Contains(txtSearchContract.Text.ToLower()))
-                lvContract.Items.Add(new ListViewItem(new string[] { contract.ID.ToString(),contract.Customer, contract.Description }));
+                    lvContract.Items.Add(new ListViewItem(new string[] { contract.ID.ToString(), contract.Customer, contract.Description }));
             }
         }
 
@@ -54,6 +54,7 @@ namespace ZaverecnyProjekt_IT4
             lvWorkType.Items.Clear();
             foreach (WorkType worktype in SqlRepository.WorktypeList())
             {
+                if (worktype.Name.ToLower().Contains(txtSearchWorktype.Text.ToLower()))
                 lvWorkType.Items.Add(new ListViewItem(new string[] { worktype.ID.ToString(), worktype.Name, worktype.Description }));
             }
         }
@@ -77,7 +78,6 @@ namespace ZaverecnyProjekt_IT4
             btnDeleteEmployee.Enabled = lvEmployee.SelectedIndices.Count == 1;
             btnEditEmployee.Enabled = lvEmployee.SelectedIndices.Count == 1;
         }
-
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
@@ -107,7 +107,7 @@ namespace ZaverecnyProjekt_IT4
         {
             updateemployee();
         }
-
+    
         private void btnAddContract_Click(object sender, EventArgs e)
         {
             Form formContract = new FormAddorEditContract();
@@ -141,6 +141,41 @@ namespace ZaverecnyProjekt_IT4
         private void txtSearchContract_TextChanged(object sender, EventArgs e)
         {
             updatecontracts();
+        }
+    
+        private void lvWorkType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnDeleteWorktype.Enabled = lvWorkType.SelectedIndices.Count == 1;
+            btnEditWorktype.Enabled = lvWorkType.SelectedIndices.Count == 1;
+        }
+
+        private void btnAddWorktype_Click(object sender, EventArgs e)
+        {
+            Form formWorktype = new FormAddorEditWorkType();
+            formWorktype.ShowDialog();
+
+            worktypes = SqlRepository.WorktypeList();
+            updateworktype();
+        }
+
+        private void btnEditWorktype_Click(object sender, EventArgs e)
+        {
+            Form formWorktype = new FormAddorEditWorkType(worktypes[lvWorkType.SelectedIndices[0]]);
+            formWorktype.ShowDialog();
+
+            worktypes = SqlRepository.WorktypeList();
+            updateworktype();
+        }
+
+        private void btnDeleteWorktype_Click(object sender, EventArgs e)
+        {
+            SqlRepository.DeleteWorktypebyId(int.Parse(lvWorkType.SelectedItems[0].Text));
+            updateworktype();
+        }
+
+        private void txtSearchWorktype_TextChanged(object sender, EventArgs e)
+        {
+            updateworktype();
         }
     }
 }

@@ -59,11 +59,11 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lvWorkType = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchWorktype = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteWorktype = new System.Windows.Forms.Button();
+            this.btnEditWorktype = new System.Windows.Forms.Button();
+            this.btnAddWorktype = new System.Windows.Forms.Button();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -344,11 +344,11 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.txtSearchWorktype);
             this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Controls.Add(this.button1);
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.btnDeleteWorktype);
+            this.tabPage3.Controls.Add(this.btnEditWorktype);
+            this.tabPage3.Controls.Add(this.btnAddWorktype);
             this.tabPage3.Controls.Add(this.lvWorkType);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -364,6 +364,7 @@
             this.columnHeader11,
             this.columnHeader12});
             this.lvWorkType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvWorkType.FullRowSelect = true;
             this.lvWorkType.GridLines = true;
             this.lvWorkType.HideSelection = false;
             this.lvWorkType.Location = new System.Drawing.Point(0, 0);
@@ -372,13 +373,15 @@
             this.lvWorkType.TabIndex = 0;
             this.lvWorkType.UseCompatibleStateImageBehavior = false;
             this.lvWorkType.View = System.Windows.Forms.View.Details;
+            this.lvWorkType.SelectedIndexChanged += new System.EventHandler(this.lvWorkType_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtSearchWorktype
             // 
-            this.textBox1.Location = new System.Drawing.Point(389, 291);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtSearchWorktype.Location = new System.Drawing.Point(389, 291);
+            this.txtSearchWorktype.Name = "txtSearchWorktype";
+            this.txtSearchWorktype.Size = new System.Drawing.Size(145, 20);
+            this.txtSearchWorktype.TabIndex = 15;
+            this.txtSearchWorktype.TextChanged += new System.EventHandler(this.txtSearchWorktype_TextChanged);
             // 
             // label3
             // 
@@ -389,34 +392,37 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Vyhledávání :";
             // 
-            // button1
+            // btnDeleteWorktype
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(203, 289);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Smazat práci";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDeleteWorktype.Enabled = false;
+            this.btnDeleteWorktype.Location = new System.Drawing.Point(203, 289);
+            this.btnDeleteWorktype.Name = "btnDeleteWorktype";
+            this.btnDeleteWorktype.Size = new System.Drawing.Size(101, 23);
+            this.btnDeleteWorktype.TabIndex = 13;
+            this.btnDeleteWorktype.Text = "Smazat práci";
+            this.btnDeleteWorktype.UseVisualStyleBackColor = true;
+            this.btnDeleteWorktype.Click += new System.EventHandler(this.btnDeleteWorktype_Click);
             // 
-            // button2
+            // btnEditWorktype
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(105, 289);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Upravit práci";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditWorktype.Enabled = false;
+            this.btnEditWorktype.Location = new System.Drawing.Point(105, 289);
+            this.btnEditWorktype.Name = "btnEditWorktype";
+            this.btnEditWorktype.Size = new System.Drawing.Size(92, 23);
+            this.btnEditWorktype.TabIndex = 12;
+            this.btnEditWorktype.Text = "Upravit práci";
+            this.btnEditWorktype.UseVisualStyleBackColor = true;
+            this.btnEditWorktype.Click += new System.EventHandler(this.btnEditWorktype_Click);
             // 
-            // button3
+            // btnAddWorktype
             // 
-            this.button3.Location = new System.Drawing.Point(5, 289);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Přidat práci";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddWorktype.Location = new System.Drawing.Point(5, 289);
+            this.btnAddWorktype.Name = "btnAddWorktype";
+            this.btnAddWorktype.Size = new System.Drawing.Size(94, 23);
+            this.btnAddWorktype.TabIndex = 11;
+            this.btnAddWorktype.Text = "Přidat práci";
+            this.btnAddWorktype.UseVisualStyleBackColor = true;
+            this.btnAddWorktype.Click += new System.EventHandler(this.btnAddWorktype_Click);
             // 
             // columnHeader10
             // 
@@ -424,8 +430,8 @@
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Jméno";
-            this.columnHeader11.Width = 106;
+            this.columnHeader11.Text = "Název";
+            this.columnHeader11.Width = 122;
             // 
             // columnHeader12
             // 
@@ -488,11 +494,11 @@
         private System.Windows.Forms.Button btnAddContract;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchWorktype;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteWorktype;
+        private System.Windows.Forms.Button btnEditWorktype;
+        private System.Windows.Forms.Button btnAddWorktype;
         private System.Windows.Forms.ListView lvWorkType;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;

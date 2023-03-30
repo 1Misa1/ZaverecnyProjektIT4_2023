@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Classes\Contract.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="FormAddorEditWorkType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddorEditWorkType.Designer.cs">
+      <DependentUpon>FormAddorEditWorkType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddorEditContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="SqlRepository.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\WorkType.cs" />
+    <EmbeddedResource Include="FormAddorEditWorkType.resx">
+      <DependentUpon>FormAddorEditWorkType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddorEditContract.resx">
       <DependentUpon>FormAddorEditContract.cs</DependentUpon>
     </EmbeddedResource>
