@@ -17,5 +17,12 @@ namespace ZaverecnyProjekt_IT4
             Name = name;
             Description = description;
         }
+
+        public WorkType(int iD, string name, string description)
+        {
+            ID = iD;
+            Name = name;
+            Description = description;
+        }
     }
 }

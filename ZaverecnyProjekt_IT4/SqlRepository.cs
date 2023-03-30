@@ -134,6 +134,64 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
+        // načtení dat z worktypes tabulky 
+        public static List<WorkType> WorktypeList()
+
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Worktypes";
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<WorkType> worktype = new List<WorkType>();
+            while (reader.Read())
+            {
+                worktype.Add(new WorkType(reader.GetInt32(0),reader.GetString(1), reader.GetString(2)));
+            }
+            reader.Close();
+            conn.Close();
+            return worktype;
+        }
+
+        // přidávíní do tabulky worktype
+        public static void AddWorktype(WorkType worktype)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO Worktypes (Name, Description) VALUES (@name, @description)";
+            cmd.Parameters.AddWithValue("name", worktype.Name);
+            cmd.Parameters.AddWithValue("description", worktype.Description);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        // editování v tabulce worktype
+        public static void EditWorktype(int id, WorkType worktype)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE Worktypes SET Name=@name, Description=@description WHERE id=@id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.Parameters.AddWithValue("name", worktype.Name);
+            cmd.Parameters.AddWithValue("description", worktype.Description);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        // mazání z tabulky worktype
+        public static void DeleteWorktype(int id)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM Worktypes WHERE Id=id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+
+
+
 
 
     }
