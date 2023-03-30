@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Classes\Contract.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\WorkHours.cs" />
     <Compile Include="FormAddorEditWorkType.cs">
       <SubType>Form</SubType>
     </Compile>

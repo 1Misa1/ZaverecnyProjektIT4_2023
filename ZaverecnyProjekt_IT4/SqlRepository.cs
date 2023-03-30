@@ -188,12 +188,21 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
         }
 
+        public static List<WorkHours> WorkhoursList()
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "";
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<WorkHours> workhours = new List<WorkHours>();
+            while (reader.Read())
+            {
 
-
-
-
-
-
+            }
+            reader.Close();
+            conn.Close();
+            return workhours;
+        }
     }
 }
 
