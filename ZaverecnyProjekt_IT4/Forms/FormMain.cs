@@ -16,14 +16,17 @@ namespace ZaverecnyProjekt_IT4
     {
         List<Employee> employees = new List<Employee>(); 
         List<Contract> contracts = new List<Contract>();
+        List<WorkType> worktypes = new List<WorkType>();
 
         public FormMain()
         {
             InitializeComponent();
             employees = SqlRepository.EmployeeList();
             contracts = SqlRepository.ContractList();
+            worktypes = SqlRepository.WorktypeList();
             updateemployee();
             updatecontracts();
+            updateworktype();
         }
 
         private void updateemployee()
@@ -43,6 +46,15 @@ namespace ZaverecnyProjekt_IT4
             {
                 if (contract.Customer.ToLower().Contains(txtSearchContract.Text.ToLower()))
                 lvContract.Items.Add(new ListViewItem(new string[] { contract.ID.ToString(),contract.Customer, contract.Description }));
+            }
+        }
+
+        private void updateworktype()
+        {
+            lvWorkType.Items.Clear();
+            foreach (WorkType worktype in SqlRepository.WorktypeList())
+            {
+                lvWorkType.Items.Add(new ListViewItem(new string[] { worktype.ID.ToString(), worktype.Name, worktype.Description }));
             }
         }
 

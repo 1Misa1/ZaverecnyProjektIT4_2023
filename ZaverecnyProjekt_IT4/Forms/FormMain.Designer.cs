@@ -54,13 +54,24 @@
             this.btnEditContract = new System.Windows.Forms.Button();
             this.btnAddContract = new System.Windows.Forms.Button();
             this.lvContract = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lvWorkType = new System.Windows.Forms.ListView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,6 +121,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 78);
             this.tabControl1.Name = "tabControl1";
@@ -316,6 +328,10 @@
             this.lvContract.View = System.Windows.Forms.View.Details;
             this.lvContract.SelectedIndexChanged += new System.EventHandler(this.lvContract_SelectedIndexChanged);
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Id";
+            // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Zákazník";
@@ -324,11 +340,97 @@
             // columnHeader9
             // 
             this.columnHeader9.Text = "Popis";
-            this.columnHeader9.Width = 93;
+            this.columnHeader9.Width = 341;
             // 
-            // columnHeader7
+            // tabPage3
             // 
-            this.columnHeader7.Text = "Id";
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.lvWorkType);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(733, 320);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Typ práce";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lvWorkType
+            // 
+            this.lvWorkType.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12});
+            this.lvWorkType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lvWorkType.GridLines = true;
+            this.lvWorkType.HideSelection = false;
+            this.lvWorkType.Location = new System.Drawing.Point(0, 0);
+            this.lvWorkType.Name = "lvWorkType";
+            this.lvWorkType.Size = new System.Drawing.Size(733, 283);
+            this.lvWorkType.TabIndex = 0;
+            this.lvWorkType.UseCompatibleStateImageBehavior = false;
+            this.lvWorkType.View = System.Windows.Forms.View.Details;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(389, 291);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(310, 294);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Vyhledávání :";
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(203, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Smazat práci";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(105, 289);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Upravit práci";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(5, 289);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Přidat práci";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "ID";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Jméno";
+            this.columnHeader11.Width = 106;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Popis";
+            this.columnHeader12.Width = 371;
             // 
             // FormMain
             // 
@@ -348,6 +450,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,5 +487,15 @@
         private System.Windows.Forms.Button btnEditContract;
         private System.Windows.Forms.Button btnAddContract;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListView lvWorkType;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
     }
 }
