@@ -14,9 +14,17 @@ namespace ZaverecnyProjekt_IT4
         [STAThread]
         static void Main()
         {
+            //SqlRepository.AddUser("jméno","heslo",idrole);
+            //return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
+            User user = formLogin.LoggedUser;
+            if (user != null)
+            {
+                Application.Run(new FormMain(user));
+            }
         }
     }
 }

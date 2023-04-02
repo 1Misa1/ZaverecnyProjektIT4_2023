@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -19,7 +20,6 @@ namespace ZaverecnyProjekt_IT4
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             return conn;
-
         }
 
         // čtení zaměstnanců z tabulky
@@ -99,7 +99,6 @@ namespace ZaverecnyProjekt_IT4
         }
 
         // přidávání do contactu 
-
         public static void AddContract(Contract contract)
         {
             SqlConnection conn = Connect();
@@ -204,6 +203,105 @@ namespace ZaverecnyProjekt_IT4
             conn.Close();
             return workhours;
         }
+
+        public static List<User> UsersList()
+        {
+            List<User> users = new List<User>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM [User]";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                users.Add(new User(reader.GetInt32(0), reader.GetString(1), GetRoleByID(reader.GetInt32(4))));
+            }
+            reader.Close();
+            conn.Close();
+            return users;
+        }
+
+        public static void AddUser(string name, string password, int roleid)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            HMACSHA512 hmac = new HMACSHA512();
+            cmd.CommandText = "INSERT INTO [User] (name,passwordhash,passwordsalt,role) VALUES (@name,@hash,@salt,@role)";
+            cmd.Parameters.AddWithValue("name", name);
+            cmd.Parameters.AddWithValue("hash", hmac.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            cmd.Parameters.AddWithValue("salt", hmac.Key);
+            cmd.Parameters.AddWithValue("role", roleid);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void EditUser(int id, User user)
+        {
+            
+        }
+
+        public static void DeleteUserbyId(int id)
+        {
+            SqlConnection conn = Connect();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM [User] WHERE Id=@id";
+            cmd.Parameters.AddWithValue("id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void ChangePassword(int id, string newpassword)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand command = conn.CreateCommand();
+            HMACSHA512 hmac = new HMACSHA512();
+            command.CommandText = "Update [User] SET PasswordHash=@hash,PasswordSalt=@salt WHERE ID=@id";
+            command.Parameters.AddWithValue("hash", hmac.ComputeHash(Encoding.UTF8.GetBytes(newpassword)));
+            command.Parameters.AddWithValue("salt", hmac.Key);
+            command.Parameters.AddWithValue("id", id);
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static Role GetRoleByID(int id)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM Role WHERE id=@id";
+            command.Parameters.AddWithValue("id", id);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                return new Role(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2));
+            }
+            return null;
+        }
+
+        public static User CheckLogin(string username, string password)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT * FROM [User] WHERE Name=@name";
+            command.Parameters.AddWithValue("name", username);
+            SqlDataReader reader = command.ExecuteReader();
+            User user = null;
+            if (reader.Read())
+            {
+                HMACSHA512 hmac = new HMACSHA512((byte[])reader[3]);
+                if (hmac.ComputeHash(Encoding.UTF8.GetBytes(password)).SequenceEqual((byte[])reader[2]))
+                {
+                    user = new User(reader.GetInt32(0), reader.GetString(1), GetRoleByID(reader.GetInt32(4)));
+                }
+            }
+            reader.Close();
+            conn.Close();
+            return user;
+        }
+
     }
 }
 

@@ -13,8 +13,9 @@ namespace ZaverecnyProjekt_IT4
         public string Name { get; }
         public bool IsAdmin { get; }
 
-        public Role(string name, bool isAdmin)
+        public Role(int iD,string name, bool isAdmin)
         {
+            ID = iD;
             Name = name;
             IsAdmin = isAdmin;
         }

@@ -14,19 +14,45 @@ namespace ZaverecnyProjekt_IT4
 {
     public partial class FormMain : Form
     {
+        public bool Logout { get; private set; }
+        public User LoggedUser { get; }
+
         List<Employee> employees = new List<Employee>();
         List<Contract> contracts = new List<Contract>();
         List<WorkType> worktypes = new List<WorkType>();
+        List<User> users = new List<User>();
 
-        public FormMain()
+        public FormMain(User user)
         {
+            LoggedUser = user;
             InitializeComponent();
             employees = SqlRepository.EmployeeList();
             contracts = SqlRepository.ContractList();
             worktypes = SqlRepository.WorktypeList();
+            users=SqlRepository.UsersList();
             updateemployee();
             updatecontracts();
             updateworktype();
+            updateuser();
+
+            lblWho.Text = LoggedUser.Name;
+
+            if (!user.Role.IsAdmin)
+            {
+                btnAddUser.Hide();
+                btnEditUser.Hide();
+                btnDeleteUser.Hide();
+                lvUsers.Hide();
+                btnDeleteWorktype.Hide();
+                btnEditWorktype.Hide();
+                btnAddWorktype.Hide();
+                btnAddContract.Hide();
+                btnEditContract.Hide();
+                btnDeleteContract.Hide();
+                btnAddEmployee.Hide();
+                btnEditEmployee.Hide();
+                btnDeleteEmployee.Hide();
+            }
         }
 
         private void updateemployee()
@@ -59,11 +85,18 @@ namespace ZaverecnyProjekt_IT4
             }
         }
 
-
+        private void updateuser()
+        {
+            lvUsers.Items.Clear();
+            foreach (User user in SqlRepository.UsersList())
+            {
+                if (user.Name.ToLower().Contains(txtSearchUser.Text.ToLower()))
+                    lvUsers.Items.Add(new ListViewItem(new string[] { user.ID.ToString(), user.Name, user.Role.Name }));
+            }
+        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-
 
         }
 
@@ -176,6 +209,11 @@ namespace ZaverecnyProjekt_IT4
         private void txtSearchWorktype_TextChanged(object sender, EventArgs e)
         {
             updateworktype();
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
